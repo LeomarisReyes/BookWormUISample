@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookWormUISample.Views.MainPage"
+             BackgroundColor="#e4e4e4">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <!-- Main layout structure-->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,*">
+               <!-- 1. Header -->
+                 <Image Grid.Column="0" Grid.Row="0" Source="BookWormLogo" Margin="{OnPlatform iOS='30,60,0,0', Android='30,20,0,0'}" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start"/>
+                 <Button Grid.Column="1" Grid.Row="0" CornerRadius="16" ImageSource="Close" BackgroundColor="#eef2f3" WidthRequest="50" HeightRequest="50" Margin="{OnPlatform iOS='0,60,25,0', Android='0,20,25,0'}"  VerticalOptions="Start" HorizontalOptions="End"/>
+                <!-- Main Image-->
+                <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Source="WomenBG" TranslationY="{OnPlatform iOS='65', Android='60'}" VerticalOptions="Start" Aspect="AspectFit" HeightRequest="{OnPlatform Android='280', iOS='420'}"/>
+                <!-- Frame to achieve the gradient over the image-->
+                <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" TranslationY="{OnPlatform iOS='60', Android='65'}" HasShadow="False">
+                    <Frame.Background>
+                           <LinearGradientBrush EndPoint="0,1">
+                               <GradientStop Color="Transparent" Offset="0.6" />
+                               <GradientStop Color="#e4e4e4" Offset="0.9" />
+                           </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+               <!-- 2. Description -->
+               <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Text="Reading is &#10;fascinating" Margin="25,-10,0,0" CharacterSpacing="3" FontAttributes="Bold" TextColor="#353f5f" FontSize="40"/>
+               <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Text="World bestsellers, scientific worlds and simply entertaining literature."  FontSize="20" TextColor="#9196a6" Margin="25,20,0,35"/>
+
+               <!-- 3. Cards -->
+               <Frame Grid.Row="3"  BackgroundColor="#3bc4e5" Grid.Column="0" Margin="{OnPlatform Android='25,0,5,30', iOS='25,0,5,70'}" HasShadow="False" CornerRadius="20">
+                  <Label TextColor="White" VerticalTextAlignment="Center"> 
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="80K+&#10;" FontAttributes="Bold" FontSize="33"/>
+                            <Span Text="Books of all&#10;tastes" FontSize="20"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                  </Label>
+               </Frame>
+               <Frame Grid.Row="3" Grid.Column="1" Margin="{OnPlatform Android='5,0,25,30', iOS='5,0,25,70'}" HasShadow="False" BackgroundColor="#fe6954" CornerRadius="20">
+                 <Label TextColor="White" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="12&#10;" FontAttributes="Bold" FontSize="33"/>
+                            <Span Text="cazy reading&#10;rooms" FontSize="20"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                 </Label>
+               </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
